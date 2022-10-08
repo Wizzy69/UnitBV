@@ -1,6 +1,6 @@
 //#include <iostream>
 //
-//int removeDigitFromCustomPos(int n, int i)
+// int removeDigitFromCustomPos(int n, int i)
 //{
 //	int new_nr = 0;
 //	int p = 1;
@@ -20,7 +20,7 @@
 //	return new_nr;
 //}
 //
-//int numberOfDigits(int n)
+// int numberOfDigits(int n)
 //{
 //	int nr = 0;
 //	while (n)
@@ -31,7 +31,7 @@
 //	return nr;
 //}
 //
-//void main()
+// void main()
 //{
 //	int n;
 //	std::cout << "Introduceti un numar: ";
