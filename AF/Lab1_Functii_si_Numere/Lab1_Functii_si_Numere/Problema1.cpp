@@ -3,14 +3,17 @@
 int Suma(int a)
 {
 	int contor = 0;
-	while (a) {
+	while (a)
+	{
 		contor += a % 10;
 		a /= 10;
 	}
 	return contor;
 }
-void Perechi(int n) {
-	if (n < 0) {
+void Perechi(int n)
+{
+	if (n < 0)
+	{
 		std::cout << "imposibil";
 		return;
 	}
@@ -19,11 +22,11 @@ void Perechi(int n) {
 			if (Suma(i) == Suma(j))
 				std::cout << i << " " << j << std::endl;
 }
-//int main()
-//{
-//	int n;
-//	std::cin >> n;
-//
-//	Perechi(n);
-//	return 0;
-//}
+int main()
+{
+	int n;
+	std::cin >> n;
+
+	Perechi(n);
+	return 0;
+}
