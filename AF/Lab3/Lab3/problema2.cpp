@@ -1,24 +1,25 @@
 #include <iostream>
 #include <vector>
 
-void citireVector(std::vector<std::vector<int>>& vector, int& lin, int& col) {
-	std::cin >> lin >> col;
+void citireVector(std::vector<std::vector<int>>& matrice, int& lin, int& col) {
+	std::cout << "Dimensiune: ";  std::cin >> lin >> col;
+	std::cout << "Matrice: \n";
 	int element;
-	for (int i = 0; i < lin; i++) {
+	for (int linie = 0; linie < lin; linie++) {
 		std::vector<int> vLinie;
-		for (int j = 0; j < col; j++) {
+		for (int coloana = 0; coloana < col; coloana++) {
 			std::cin >> element;
 			vLinie.push_back(element);
 		}
-		vector.push_back(vLinie);
+		matrice.push_back(vLinie);
 	}
 }
 
-void afisare(const std::vector<std::vector<int>> vct)
+void afisare(const std::vector<std::vector<int>> matrice)
 {
-	for (int i = 0; i < vct.size(); i++) {
-		for (int j = 0; j < vct[i].size(); j++) {
-			std::cout << vct[i][j] << " ";
+	for (int linie = 0; linie < matrice.size(); linie++) {
+		for (int coloana = 0; coloana < matrice[linie].size(); coloana++) {
+			std::cout << matrice[linie][coloana] << " ";
 		}
 		std::cout << std::endl;
 	}
@@ -35,7 +36,9 @@ int SumaTriunghiulDeNord(std::vector<std::vector<int>> matrice)
 		}
 	}
 	return suma;
-}
+}	
+
+
 
 int SumaTriunghiDeSud(std::vector<std::vector<int>> matrice)
 {
@@ -79,16 +82,13 @@ int SumaTriunghiDeVest(std::vector<std::vector<int>> matrice)
 
 int main()
 {
-	int linii, coloane;
+	int l, c;
 	std::vector<std::vector<int>> matrice;
-	citireVector(matrice, linii, coloane);
-
-	std::cout << "Suma triunghiului de nord este: " << SumaTriunghiulDeNord(matrice) << std::endl;
-	std::cout << "Suma triunghiului de sud este: " << SumaTriunghiDeSud(matrice) << std::endl;
-	std::cout << "Suma triunghiului de est este: " << SumaTriunghiDeEst(matrice) << std::endl;
-	std::cout << "Suma triunghiului de vest este: " << SumaTriunghiDeVest(matrice) << std::endl;
-	
+	citireVector(matrice, l, c);
+	afisare(matrice);
+	std::cout << "Suma triunghiului de nord: " << SumaTriunghiulDeNord(matrice) << std::endl;
+	std::cout << "Suma triunghiului de sud: " << SumaTriunghiDeSud(matrice) << std::endl;
+	std::cout << "Suma triunghiului de est: " << SumaTriunghiDeEst(matrice) << std::endl;
+	std::cout << "Suma triunghiului de vest: " << SumaTriunghiDeVest(matrice) << std::endl;
 	return 0;
-	
-	
 }
