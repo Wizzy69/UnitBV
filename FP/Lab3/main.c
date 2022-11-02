@@ -3,10 +3,12 @@
 
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    int *a = (int *)malloc(sizeof(int) * n);
+    // int n;
+    // scanf("%d", &n);
+    // int *a = (int *)malloc(sizeof(int) * n);
 
-    free(a);
+    // free(a);
+    // return 0;
+    printf("%d", sizeof(int));
     return 0;
 }
