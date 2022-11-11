@@ -35,6 +35,25 @@ std::pair<T *, int> Utils::Array::ReadFromFile(std::string fileName)
 }
 
 template <typename T>
+std::pair<T *, int> Utils::Array::ReadFromConsole(bool allowMessages)
+{
+    int size;
+    if (allowMessages)
+        std::cout << "Enter size of array: ";
+    std::cin >> size;
+    T *array = new T[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        if (allowMessages)
+            std::cout << "Enter element " << i << ": ";
+        std::cin >> array[i];
+    }
+
+    return std::make_pair(array, size);
+}
+
+template <typename T>
 void Utils::Array::WriteToFile(std::string fileName, T *array, int &size)
 {
     std::ofstream file(fileName);
@@ -81,7 +100,7 @@ int Utils::Array::BinarySearch::Search(T *array, int &size, T value)
 }
 
 template <typename T>
-void Utils::Array::SortingAlgorithms::BubbleSort(T *array, int &size)
+void Utils::Array::SortingAlgorithms::BubbleSort(T *&array, int &size)
 {
     for (int i = 0; i < size - 1; i++)
     {
@@ -96,7 +115,7 @@ void Utils::Array::SortingAlgorithms::BubbleSort(T *array, int &size)
 }
 
 template <typename T>
-void Utils::Array::SortingAlgorithms::InsertionSort(T *array, int &size)
+void Utils::Array::SortingAlgorithms::InsertionSort(T *&array, int &size)
 {
     for (int i = 1; i < size; i++)
     {
@@ -112,7 +131,7 @@ void Utils::Array::SortingAlgorithms::InsertionSort(T *array, int &size)
 }
 
 template <typename T>
-void Utils::Array::SortingAlgorithms::SelectionSort(T *array, int &size)
+void Utils::Array::SortingAlgorithms::SelectionSort(T *&array, int &size)
 {
     for (int i = 0; i < size - 1; i++)
     {
@@ -129,7 +148,7 @@ void Utils::Array::SortingAlgorithms::SelectionSort(T *array, int &size)
 }
 
 template <typename T>
-void Utils::Array::SortingAlgorithms::MergeSort(T *array, int &size)
+void Utils::Array::SortingAlgorithms::MergeSort(T *&array, int &size)
 {
     if (size <= 1)
     {
@@ -194,7 +213,7 @@ void Utils::Array::SortingAlgorithms::MergeSort(T *array, int &size)
 }
 
 template <typename T>
-void Utils::Array::SortingAlgorithms::QuickSort(T *array, int &size)
+void Utils::Array::SortingAlgorithms::QuickSort(T *&array, int &size)
 {
     if (size <= 1)
     {
@@ -225,4 +244,18 @@ void Utils::Array::SortingAlgorithms::QuickSort(T *array, int &size)
 
     QuickSort(array, right + 1);
     QuickSort(array + left, size - left);
+}
+
+template <typename T>
+void Utils::Others::Swap(T &a, T &b)
+{
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+template <typename T, typename InputType>
+T Utils::Others::Percent(InputType value, InputType totalValue)
+{
+    return (T)((T)(value * 100) / totalValue);
 }

@@ -11,6 +11,9 @@ namespace Utils
 		std::pair<T *, int> ReadFromFile(std::string fileName);
 
 		template <typename T>
+		std::pair<T *, int> ReadFromConsole(bool allowMessages);
+
+		template <typename T>
 		void WriteToFile(std::string fileName, T *array, int &size);
 
 		template <typename T>
@@ -25,20 +28,29 @@ namespace Utils
 		namespace SortingAlgorithms
 		{
 			template <typename T>
-			void BubbleSort(T *array, int &size);
+			void BubbleSort(T *&array, int &size);
 
 			template <typename T>
-			void InsertionSort(T *array, int &size);
+			void InsertionSort(T *&array, int &size);
 
 			template <typename T>
-			void SelectionSort(T *array, int &size);
+			void SelectionSort(T *&array, int &size);
 
 			template <typename T>
-			void MergeSort(T *array, int &size);
+			void MergeSort(T *&array, int &size);
 
 			template <typename T>
-			void QuickSort(T *array, int &size);
+			void QuickSort(T *&array, int &size);
 		}
+	}
+
+	namespace Others
+	{
+		template <typename T>
+		void Swap(T &a, T &b);
+
+		template <typename T, typename InputType>
+		T Percent(InputType value, InputType totalValue);
 	}
 
 }
