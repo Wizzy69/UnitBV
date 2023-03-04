@@ -1,0 +1,5 @@
+Tudor Andrei 10 3 5
+Gicu Patent 3 7 1
+Ana Olaru 6 8 5
+George Francu 8 10 9
+abc def 4 3 1
