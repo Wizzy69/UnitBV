@@ -15,8 +15,6 @@ struct pozitie // element
 
 int minimVector(std::vector<pozitie> vector)
 {
-    if (vector == NULL)
-        return 0;
     int minim = vector[0].valCurenta;
     for (int index = 0; index < vector.size(); ++index)
     {
